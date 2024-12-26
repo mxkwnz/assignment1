@@ -1,0 +1,5 @@
+Harry Potter 21 Male
+Ron Qeasley 20 Male
+Hermione Granger 19 Female
+Luna Lovegood 20 Female
+Draco Malfoy 19 Male

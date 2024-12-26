@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        ArrayList<Classes> classes = new ArrayList<>();
+        ArrayList<Person> classes = new ArrayList<>();
 
-        File file = new File("src\\person-classes.txt");
+        File file = new File("src\\students.txt");
         Scanner scanner = new Scanner(file);
 
         while (scanner.hasNextLine()) {
-            Classes c = new Classes();
+            Person c = new Person();
             c.setName(scanner.next());
             c.setSurname(scanner.next());
             c.setAge(Integer.parseInt(scanner.next()));
             c.setGender(Boolean.parseBoolean(scanner.next()));
             classes.add(c);
         }
-        for(Classes c : classes) {
+        for(Person c : classes) {
             System.out.println(c.toString());
         }
     }

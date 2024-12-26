@@ -1,18 +1,15 @@
-public class Classes {
-    private static int id = 1;
-    private int id_gen;
+public class Person {
     private String name;
     private String surname;
     private int age;
     private boolean gender;
-    public Classes() {
-        id_gen = id++;
+    public Person() {
     }
-    public Classes(String name, String surname) {
+    public Person(String name, String surname) {
         this();
         this.name = name;
     }
-    public Classes(String name, String surname, int age, boolean gender) {
+    public Person(String name, String surname, int age, boolean gender) {
         this(name, surname);
         this.name = name;
         this.surname = surname;
@@ -45,6 +42,6 @@ public class Classes {
     }
     @Override
     public String toString() {
-        return "Id:" + id_gen + "\nHi I am" + " " + name + " " + surname + ", a " + age + "-year-old" + ", " + (gender ? "male" : "female");
+        return "Hi I am" + " " + name + " " + surname + ", a " + age + "-year-old" + ", " + (gender ? "Male" : "Female");
     }
 }
