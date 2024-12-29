@@ -3,14 +3,12 @@ public class Person {
     private String surname;
     private int age;
     private boolean gender;
-    public Person() {
-    }
+
     public Person(String name, String surname) {
-        this();
         this.name = name;
+        this.surname = surname;
     }
     public Person(String name, String surname, int age, boolean gender) {
-        this(name, surname);
         this.name = name;
         this.surname = surname;
         this.age = age;
