@@ -8,8 +8,6 @@ public class Main {
 
         File studentsFile = new File("src\\students.txt");
         Scanner studentsScan = new Scanner(studentsFile);
-        File teachersFile = new File("src\\teachers.txt");
-        Scanner teacherScan = new Scanner(teachersFile);
         while (studentsScan.hasNextLine()) {
             String line = studentsScan.nextLine().trim();
             if (line.isEmpty()) continue;
@@ -17,8 +15,22 @@ public class Main {
             Scanner lineScanner = new Scanner(line);
             String name = lineScanner.next();
             String surname = lineScanner.next();
-            int age = lineScanner.nextInt();
-            boolean gender = lineScanner.nextBoolean();
+            int age = -1;
+            if (lineScanner.hasNextInt()) {
+                age = lineScanner.nextInt();
+            } else {
+                System.out.println("Invalid age value for student: " + name + " " + surname);
+            }
+
+            boolean gender = false;
+            String genderInput = lineScanner.next();
+            if (genderInput.equalsIgnoreCase("male")) {
+                gender = false;
+            } else if (genderInput.equalsIgnoreCase("female")) {
+                gender = true;
+            } else {
+                System.out.println("Invalid gender value for student: " + name + " " + surname);
+            }
 
             ArrayList<Integer> grades = new ArrayList<>();
             while (lineScanner.hasNextInt()) {
@@ -32,17 +44,48 @@ public class Main {
             lineScanner.close();
         }
         studentsScan.close();
+
+        File teachersFile = new File("src\\teachers.txt");
+        Scanner teacherScan = new Scanner(teachersFile);
         while (teacherScan.hasNextLine()) {
             String line = teacherScan.nextLine().trim();
-            if(line.isEmpty()) continue;
+            if (line.isEmpty()) continue;
+
             Scanner lineScanner = new Scanner(line);
             String name = lineScanner.next();
             String surname = lineScanner.next();
-            int age = lineScanner.nextInt();
-            boolean gender = lineScanner.nextBoolean();
+
+            int age = -1;
+            if (lineScanner.hasNextInt()) {
+                age = lineScanner.nextInt();
+            } else {
+                System.out.println("Invalid age value for teacher: " + name + " " + surname);
+            }
+
+            boolean gender = false;
+            String genderInput = lineScanner.next();
+            if (genderInput.equalsIgnoreCase("male")) {
+                gender = false;
+            } else if (genderInput.equalsIgnoreCase("female")) {
+                gender = true;
+            } else {
+                System.out.println("Invalid gender value for teacher: " + name + " " + surname);
+            }
+
             String subject = lineScanner.next();
-            int yearsOfExperience = lineScanner.nextInt();
-            int salary = lineScanner.nextInt();
+            int yearsOfExperience = -1;
+            if (lineScanner.hasNextInt()) {
+                yearsOfExperience = lineScanner.nextInt();
+            } else {
+                System.out.println("Invalid years of experience value for teacher: " + name + " " + surname);
+            }
+
+            int salary = -1;
+            if (lineScanner.hasNextInt()) {
+                salary = lineScanner.nextInt();
+            } else {
+                System.out.println("Invalid salary value for teacher: " + name + " " + surname);
+            }
 
             Teacher teacher = new Teacher(name, surname, subject, yearsOfExperience, salary);
             teacher.setAge(age);
@@ -51,9 +94,11 @@ public class Main {
             lineScanner.close();
         }
         teacherScan.close();
+
         school.getMembers().sort((p1, p2) -> p1.getSurname().compareToIgnoreCase(p2.getSurname()));
-        System.out.println(school);
-        for(Person member : school.getMembers()) {
+
+        System.out.println("School members:");
+        for (Person member : school.getMembers()) {
             System.out.println(member);
         }
     }

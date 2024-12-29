@@ -30,6 +30,6 @@ public class Student extends Person {
     }
     @Override
     public String toString() {
-        return super.toString() + " I am a Student with ID" + studentID + ", my GPA is " + calculateGPA();
+        return super.toString() + ", I am a Student with ID" + studentID + ", my GPA is " + calculateGPA();
     }
 }

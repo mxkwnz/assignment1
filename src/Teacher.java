@@ -43,6 +43,8 @@ public class Teacher extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + "I teach" + subject + " for " + yearsOfExperience + " years, my salary is " + salary;
+        return "Hi, I am " + getName() + " " + getSurname() + ", a " + getAge() + "-year-old " +
+                (isGender() ? "Female" : "Male") + ", I teach " + getSubject() + " for " +
+                getYearsOfExperience() + " years, my salary is " + getSalary();
     }
 }
